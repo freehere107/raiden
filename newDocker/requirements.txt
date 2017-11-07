@@ -1,14 +1,10 @@
-# temporary until pystun creates a new release
-# git+https://github.com/konradkonrad/pystun@develop#egg=pystun
-# temporary until new version of pyethereum is released, that supports interfaces
-git+https://github.com/LefterisJP/pyethereum@take_solidity_interface_into_account#egg=ethereum
-
+git+https://github.com/konradkonrad/pystun@develop#egg=pystun
 tinyrpc[gevent,httpclient,jsonext,websocket,wsgi]>=0.6<1.0
 pysha3
 ipython<5.0.0
 rlp>=0.4.3,<0.6.0
 coincurve==4.5.1
-pycryptodome>=3.4.3
+pycryptodome==3.4.6
 miniupnpc
 networkx>=2.0.0
 ethereum-serpent
