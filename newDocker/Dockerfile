@@ -44,9 +44,6 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test  && \
     apt-get upgrade -y && \
     apt-get install -y libstdc++6
 
-## Parity
-RUN curl https://get.parity.io -Lk
-
 ## solcapt-get update
 RUN add-apt-repository -y ppa:ethereum/ethereum && \
     apt-get update -y && \
@@ -65,14 +62,21 @@ RUN pip install pyethapp
 # pypyethereum
 WORKDIR /opt
 
-RUN git clone https://github.com/LefterisJP/pyethereum && \
-    cd pyethereum && \
-    git checkout take_solidity_interface_into_account
+RUN git clone https://github.com/LefterisJP/pyethereum
+
+RUN pip uninstall -y ethereum
 
 RUN cd pyethereum && \
+    git checkout take_solidity_interface_into_account && \
     pip install -r requirements.txt && \
     python setup.py install
+
+## Parity
+ADD parity_1.8.2_amd64.deb /opt
+
+RUN dpkg -i /opt/parity_1.8.2_amd64.deb && rm parity_1.8.2_amd64.deb
 
 RUN mkdir /blockchain
 
 WORKDIR /blockchain
+
