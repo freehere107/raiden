@@ -80,3 +80,6 @@ RUN mkdir /blockchain
 
 WORKDIR /blockchain
 
+RUN git clone https://github.com/freehere107/raiden
+
+RUN cd raiden && python setup.py develop
