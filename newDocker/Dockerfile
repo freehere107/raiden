@@ -82,4 +82,6 @@ WORKDIR /blockchain
 
 RUN git clone https://github.com/freehere107/raiden
 
+RUN pip install coincurve==4.5.1
+
 RUN cd raiden && python setup.py develop
