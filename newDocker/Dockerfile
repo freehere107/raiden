@@ -62,3 +62,17 @@ RUN apt-get install -y \
 
 RUN pip install pyethapp
 
+# pypyethereum
+WORKDIR /opt
+
+RUN git clone https://github.com/LefterisJP/pyethereum && \
+    cd pyethereum && \
+    git checkout take_solidity_interface_into_account
+
+RUN cd pyethereum && \
+    pip install -r requirements.txt && \
+    python setup.py install
+
+RUN mkdir /blockchain
+
+WORKDIR /blockchain

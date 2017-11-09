@@ -21,3 +21,4 @@ psutil
 filelock
 netifaces
 ipaddress
+pytest-runner==2.7
