@@ -96,6 +96,6 @@ RUN cd raiden && python setup.py develop
 
 ADD parity_1.8.2_amd64.deb /opt
 
-RUN dpkg -i /opt/parity_1.8.2_amd64.deb && rm parity_1.8.2_amd64.deb
+RUN dpkg -i /opt/parity_1.8.2_amd64.deb && rm /opt/parity_1.8.2_amd64.deb
 
 EXPOSE 5001
