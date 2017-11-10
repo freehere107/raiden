@@ -86,7 +86,7 @@ RUN npm --registry https://registry.npm.taobao.org install -g pm2
 
 ADD pm2.json /blockchain/pm2.json
 
-RUN ln -s nodejs node
+RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 RUN pm2 start pm2.json
 
