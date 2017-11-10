@@ -88,12 +88,14 @@ ADD pm2.json /blockchain/pm2.json
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-RUN pm2 start pm2.json
-
 RUN git clone https://github.com/freehere107/raiden
 
 RUN pip install coincurve==4.5.1
 
-#RUN cd raiden && python setup.py develop
+RUN cd raiden && python setup.py develop
+
+ADD parity_1.8.2_amd64.deb /opt
+
+RUN dpkg -i /opt/parity_1.8.2_amd64.deb && rm parity_1.8.2_amd64.deb
 
 EXPOSE 5001
