@@ -71,11 +71,6 @@ RUN cd pyethereum && \
     pip install -r requirements.txt && \
     python setup.py install
 
-## Parity
-ADD parity_1.8.2_amd64.deb /opt
-
-RUN dpkg -i /opt/parity_1.8.2_amd64.deb && rm parity_1.8.2_amd64.deb
-
 RUN mkdir /blockchain
 
 WORKDIR /blockchain
@@ -85,3 +80,5 @@ RUN git clone https://github.com/freehere107/raiden
 RUN pip install coincurve==4.5.1
 
 RUN cd raiden && python setup.py develop
+
+EXPOSE 5001
