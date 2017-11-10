@@ -81,8 +81,6 @@ RUN apt-get install -y \
     npm \
     ethereum
 
-RUN ln -s nodejs node
-
 #pm2
 RUN npm --registry https://registry.npm.taobao.org install -g pm2
 
