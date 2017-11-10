@@ -75,24 +75,27 @@ RUN mkdir /blockchain
 
 WORKDIR /blockchain
 
-RUN git clone https://github.com/freehere107/raiden
-
-RUN pip install coincurve==4.5.1
-
-RUN cd raiden && python setup.py develop
-
-#CMD raiden --keystore-path /blockchain/parityStore/keystore --eth-rpc-endpoint 192.168.0.1:8545 --listen-address 192.168.0.1:40001
 #geth
-RUN apt-get install -y automake \
+RUN apt-get install -y \
     nodejs \
     npm \
     ethereum
+
+RUN ln -s nodejs node
 
 #pm2
 RUN npm --registry https://registry.npm.taobao.org install -g pm2
 
 ADD pm2.json /blockchain/pm2.json
 
+RUN ln -s nodejs node
+
 RUN pm2 start pm2.json
+
+RUN git clone https://github.com/freehere107/raiden
+
+RUN pip install coincurve==4.5.1
+
+#RUN cd raiden && python setup.py develop
 
 EXPOSE 5001
