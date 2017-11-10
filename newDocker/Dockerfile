@@ -91,7 +91,7 @@ RUN apt-get install -y automake \
 #pm2
 RUN npm --registry https://registry.npm.taobao.org install -g pm2
 
-ADD pm2.json pm2.json
+ADD pm2.json /blockchain/pm2.json
 
 RUN pm2 start pm2.json
 
