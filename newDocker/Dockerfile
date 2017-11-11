@@ -100,8 +100,6 @@ RUN dpkg -i /opt/parity_1.8.2_amd64.deb && rm /opt/parity_1.8.2_amd64.deb
 
 RUN pm2 start pm2.json
 
-CMD ["raiden --keystore-path  /blockchain/parityStore/keys/test"]
-
 EXPOSE 40001/udp
 
 ENTRYPOINT ["raiden"]
