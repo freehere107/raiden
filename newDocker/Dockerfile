@@ -102,4 +102,6 @@ RUN pm2 start pm2.json
 
 CMD ["raiden --keystore-path  /blockchain/parityStore/keys/test"]
 
-EXPOSE 5001
+EXPOSE 40001/udp
+
+ENTRYPOINT ["raiden"]
